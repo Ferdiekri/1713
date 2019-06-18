@@ -2,17 +2,17 @@ package com.ipartek.formacion;
 
 public class Youtube {
 
-	private static final int LONGITUD_CODIGO = 11;
-	private static final String URL = "https://www.youtube.com/watch?v=";
-	private static final int LONGITUD_MIN_TITULO = 2;
-	private static final int LONGITUD_MAX_TITULO = 150;
+	public static final int LONGITUD_CODIGO = 11;
+	public static final String URL = "https://www.youtube.com/watch?v=";
+	public static final int LONGITUD_MIN_TITULO = 2;
+	public static final int LONGITUD_MAX_TITULO = 150;
 	// https://www.youtube.com/watch?v=
 
 	// atributos
 
 	private String titulo; // minimo 2 letras & máximo 150 letras
 	private String codigo; // exactamente 11 dígitos
-	private int reproducciones;
+	private int reproducciones; // >=0
 
 	// constructores
 
