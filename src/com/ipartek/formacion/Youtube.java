@@ -62,8 +62,14 @@ public class Youtube {
 		return reproducciones;
 	}
 
-	public void setReproducciones(int reproducciones) {
-		this.reproducciones = reproducciones;
+	public void setReproducciones(int reproducciones) throws Exception {
+
+		if (reproducciones >= 0) {
+			this.reproducciones = reproducciones;
+		} else {
+			throw new Exception("Las reproducciones no pueden ser negativas.");
+		}
+
 	}
 
 	// resto de funciones

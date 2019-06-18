@@ -35,11 +35,11 @@ public class YouTubeTest {
 	@Test
 	public void testYoutube() {
 		Youtube ytNull = new Youtube();
-		
+
 		try {
 			ytNull.setTitulo(null);
 			ytNull.setCodigo(null);
-			fail("Error controlado.");
+			fail("Datos erroneos.");
 		} catch (Exception e) {
 		}
 	}
@@ -52,7 +52,7 @@ public class YouTubeTest {
 
 		try {
 			Youtube ytNull = new Youtube(null, null);
-			fail("Error controlado");
+			fail("Datos erroneos.");
 		} catch (Exception e) {
 		}
 	}
@@ -66,27 +66,31 @@ public class YouTubeTest {
 	public void testSetTitulo() throws Exception {
 		yt.setTitulo("algo");
 		assertEquals("algo", yt.getTitulo());
-		
+
 		try {
 			yt.setTitulo("a");
-			fail("Error controlado.");
+			fail("Título demasiado corto.");
 		} catch (Exception e) {
-			
+
 		}
-		
-		yt.setTitulo("123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890");
-		assertEquals("123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890", yt.getTitulo());
-		
+
+		yt.setTitulo(
+				"123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890");
+		assertEquals(
+				"123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890",
+				yt.getTitulo());
+
 		try {
-			yt.setTitulo("1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901");
-			fail("Error controlado.");
+			yt.setTitulo(
+					"1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901");
+			fail("Título demasiado largo.");
 		} catch (Exception e) {
-			
+
 		}
 
 		try {
 			yt.setTitulo(null);
-			fail("Error controlado.");
+			fail("Título erroneo");
 		} catch (Exception e) {
 		}
 	}
@@ -97,29 +101,28 @@ public class YouTubeTest {
 	}
 
 	@Test
-	public void testSetCodigo() throws Exception  {
-		
+	public void testSetCodigo() throws Exception {
+
 		yt.setCodigo("12345678901");
 		assertEquals("12345678901", yt.getCodigo());
-		
+
 		try {
 			yt.setCodigo("1234567890");
-			fail("Error controlado.");
+			fail("Código demasiado corto.");
 		} catch (Exception e) {
-			
+
 		}
-		
-		
+
 		try {
 			yt.setCodigo("123456789012");
-			fail("Error controlado.");
+			fail("Código demasiado largo.");
 		} catch (Exception e) {
-			
+
 		}
 
 		try {
 			yt.setCodigo(null);
-			fail("Error controlado.");
+			fail("Código erroneo.");
 		} catch (Exception e) {
 
 		}
@@ -131,7 +134,7 @@ public class YouTubeTest {
 	}
 
 	@Test
-	public void testSetReproducciones() {
+	public void testSetReproducciones() throws Exception {
 		yt.setReproducciones(0);
 		assertEquals(0, yt.getReproducciones());
 
@@ -154,27 +157,25 @@ public class YouTubeTest {
 		try {
 			yt.setCodigo(null);
 			assertEquals((Youtube.URL + yt.getCodigo()), yt.getUrl());
-			fail("Error controlado.");
+			fail("Código erroneo");
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+
 		}
-		
+
 		try {
 			yt.setCodigo("1234567890");
 			assertEquals((Youtube.URL + yt.getCodigo()), yt.getUrl());
-			fail("Error controlado.");
+			fail("Código demasiado corto.");
 		} catch (Exception e) {
-			
+
 		}
-		
-		
+
 		try {
 			yt.setCodigo("123456789012");
 			assertEquals((Youtube.URL + yt.getCodigo()), yt.getUrl());
-			fail("Error controlado.");
+			fail("Código demasiado largo.");
 		} catch (Exception e) {
-			
+
 		}
 	}
 
