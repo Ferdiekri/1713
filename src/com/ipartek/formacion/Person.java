@@ -32,6 +32,13 @@ public class Person {
 		this.edad = edad;
 		this.sexo = sexo;
 	}
+	
+	public Person(String nombre, int edad) {
+		//super();
+		this();
+		this.nombre = nombre;
+		this.edad = edad;
+	}
 
 	public String getNombre() {
 		return nombre;
