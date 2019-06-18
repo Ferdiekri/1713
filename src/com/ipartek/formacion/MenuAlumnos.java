@@ -64,19 +64,23 @@ public class MenuAlumnos {
 	}
 
 	public static void listarAlumnos() {
-
+		System.out.println("*****  LISTADO DE ALUMNOS  *****");
+		System.out.println("********************************");
 	}
 
 	public static void crearAlumno() {
-
+		System.out.println("*****  CREAR ALUMNO  *****");
+		System.out.println("**************************");
 	}
 
 	public static void eliminarAlumno() {
-
+		System.out.println("*****  ELIMINAR ALUMNO  *****");
+		System.out.println("*****************************");
 	}
 
 	public static void buscarVoluntario() {
-
+		System.out.println("*****  BUSCAR VOLUNTARIO  *****");
+		System.out.println("*******************************");
 	}
 
 }
