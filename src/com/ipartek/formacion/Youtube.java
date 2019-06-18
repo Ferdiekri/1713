@@ -37,6 +37,12 @@ public class Youtube {
 		return titulo;
 	}
 
+	/**
+	 * Cambia titulo
+	 * 
+	 * @param titulo (String) - Nuevo título
+	 * @throws Exception titulo NULL, >= LONGITUD_MIN_TITULO, <= LONGITUD_MAX_TITULO
+	 */
 	public void setTitulo(String titulo) throws Exception {
 		if ((titulo != null) && (titulo.length() >= LONGITUD_MIN_TITULO) && (titulo.length() <= LONGITUD_MAX_TITULO)) {
 			this.titulo = titulo;

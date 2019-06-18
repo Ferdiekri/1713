@@ -1,6 +1,7 @@
 package com.ipartek.formacion;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import org.junit.After;
@@ -13,6 +14,8 @@ import org.junit.Test;
 public class YouTubeTest {
 
 	Youtube yt;
+	private static final String TITULO = "Título";
+	private static final String CODIGO = "12345678901";
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -24,7 +27,7 @@ public class YouTubeTest {
 
 	@Before
 	public void setUp() throws Exception {
-		yt = new Youtube("Título", "12345678901");
+		yt = new Youtube(TITULO, CODIGO);
 	}
 
 	@After
@@ -39,33 +42,46 @@ public class YouTubeTest {
 		try {
 			ytNull.setTitulo(null);
 			ytNull.setCodigo(null);
-			fail("Datos erroneos.");
+			fail("Datos erroneos en el constructor.");
 		} catch (Exception e) {
 		}
 	}
 
 	@Test
 	public void testYoutubeStringString() throws Exception {
-		assertEquals("Título", yt.getTitulo());
-		assertEquals("12345678901", yt.getCodigo());
+		assertEquals(TITULO, yt.getTitulo());
+		assertEquals(CODIGO, yt.getCodigo());
 		assertEquals(0, yt.getReproducciones());
 
 		try {
-			Youtube ytNull = new Youtube(null, null);
+			yt = new Youtube(null, null);
 			fail("Datos erroneos.");
+		} catch (Exception e) {
+			assertTrue(true);
+		}
+
+		try {
+			yt = new Youtube(TITULO, "ddd");
+			fail("Código erroneo.");
+		} catch (Exception e) {
+		}
+
+		try {
+			yt = new Youtube("", CODIGO);
+			fail("Título erroneo.");
 		} catch (Exception e) {
 		}
 	}
 
 	@Test
 	public void testGetTitulo() {
-		assertEquals("Título", yt.getTitulo());
+		assertEquals(TITULO, yt.getTitulo());
 	}
 
 	@Test
 	public void testSetTitulo() throws Exception {
-		yt.setTitulo("algo");
-		assertEquals("algo", yt.getTitulo());
+		yt.setTitulo(TITULO);
+		assertEquals(TITULO, yt.getTitulo());
 
 		try {
 			yt.setTitulo("a");
@@ -79,6 +95,9 @@ public class YouTubeTest {
 		assertEquals(
 				"123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890",
 				yt.getTitulo());
+
+		yt.setTitulo("aa");
+		assertEquals("aa", yt.getTitulo());
 
 		try {
 			yt.setTitulo(
