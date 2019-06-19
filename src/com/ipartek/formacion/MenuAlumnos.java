@@ -94,7 +94,7 @@ public class MenuAlumnos {
 		System.out.println("** 1. Listar alumnos ordenados por ranking. ");
 		System.out.println("** 2. Crear alumno");
 		System.out.println("** 3. Eliminar alumno.");
-		System.out.println("** 4. Buscar voluntario (no puede salir el anterior).");
+		System.out.println("** 4. Buscar voluntario.");
 		System.out.println("** 5. Salir.");
 		System.out.println("*****************************");
 		System.out.print("\nElige una opción: ");
