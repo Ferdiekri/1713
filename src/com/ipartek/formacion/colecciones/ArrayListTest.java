@@ -15,16 +15,13 @@ public class ArrayListTest {
 	@Test
 	public void test() {
 
-		ArrayList<String> arrayList = new ArrayList();
+		ArrayList<String> arrayList = new ArrayList<String>();
 		arrayList.add("A String");
 		// arrayList.add(new Integer(10));
 		arrayList.add("Another String");
 		// So far, so good.
 
-		for (int aa = 0; aa < arrayList.size(); aa++) {
-
-			String s = (String) arrayList.get(aa);
-		}
+		
 
 		// String[] paises = new String[3];
 

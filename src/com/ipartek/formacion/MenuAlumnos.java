@@ -1,5 +1,6 @@
 package com.ipartek.formacion;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MenuAlumnos {
@@ -13,13 +14,16 @@ public class MenuAlumnos {
 	 * salir el anterior). // 5. Ranking de voluntarios
 	 * 
 	 * @param args
+	 * @throws Exception 
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		Scanner sc = new Scanner(System.in);
 		int opcion = 0;
 
+		iniciarAlumnos();
+
 		dibujarMenu();
-		opcion = Integer.parseInt(sc.nextLine().charAt(0));
+		// opcion = Integer.parseInt(sc.nextLine().charAt(0));
 
 		do {
 
@@ -48,6 +52,17 @@ public class MenuAlumnos {
 		} while (opcion != 5);
 
 		sc.close();
+	}
+
+	public static void iniciarAlumnos() throws Exception {
+		String[] alumnosNombres = { "Ander", "Mounir", "Andoni", "Asier", "Jon C.", "Arkaitz", "Aritz", "Manuel", "Eduardo",
+				"Eder I.", "Eder S.", "Gaizka", "Borja", "Verónica", "Jon A.", "José Luis" };
+
+		ArrayList<Person> alumnos = new ArrayList<Person>();
+
+		for (int i = 0; i < alumnos.size(); i++) { // Mejor con ITERATOR
+			alumnos.add(new Person(alumnosNombres[i]));
+		}
 	}
 
 	public static void dibujarMenu() {

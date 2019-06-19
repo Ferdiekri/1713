@@ -21,7 +21,7 @@ public class Ejercicio11 {
 
 		for (int i = 1; i <= multi; i++) {
 			if (i % multi == 0) {
-				System.out.println("\n");
+				System.out.println("\n" + num1);
 			}
 		}
 

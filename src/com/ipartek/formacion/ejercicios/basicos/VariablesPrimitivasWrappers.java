@@ -13,7 +13,7 @@ public class VariablesPrimitivasWrappers {
 	public static void main(String[] args) {
 		// declarar todas los posibles tipos de variables primitivas que existen.
 		// números enteros.
-		byte b = 5;
+		/*byte b = 5;
 		short s = 4;
 		int i = 0;
 		long l = 8;
@@ -27,7 +27,7 @@ public class VariablesPrimitivasWrappers {
 		boolean bo = true;
 
 		// Wrappers: clases que envuelven a los datos primitivos.
-		int numeroParseado = Integer.parseInt("3");
+		int numeroParseado = Integer.parseInt("3");*/
 
 		System.out.printf("El rango de un int %d %d", Integer.MIN_VALUE, Integer.MAX_VALUE);
 		System.out.println("\n\n-----------------\n-----------------\n-----------------\n\n");
