@@ -33,11 +33,10 @@ public class Person {
 		this.sexo = sexo;
 	}
 	
-	public Person(String nombre, int edad) {
+	public Person(String nombre) throws Exception {
 		//super();
 		this();
-		this.nombre = nombre;
-		this.edad = edad;
+		this.setNombre(nombre);
 	}
 
 	public String getNombre() {
