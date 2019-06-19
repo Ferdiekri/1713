@@ -101,7 +101,6 @@ public class MenuAlumnos {
 	}
 
 	public static void listarAlumnos() {
-		// TODO hacer el ránking.
 
 		System.out.println("\n\n*****  LISTADO DE ALUMNOS  *****");
 		System.out.println("********************************");

@@ -11,7 +11,6 @@ public class Ejercicio05 {
 	 */
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		int radio;
 		Scanner entrada = new Scanner(System.in);
 
