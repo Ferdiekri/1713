@@ -1,6 +1,5 @@
 package com.ipartek.formacion;
 
-import java.util.ArrayList;
 import java.util.Comparator;
 
 public class ComparadorCerdosDiamantes implements Comparator<Ordenable> {

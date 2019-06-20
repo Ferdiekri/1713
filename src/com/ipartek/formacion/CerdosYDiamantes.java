@@ -13,9 +13,10 @@ public class CerdosYDiamantes {
 	public void test() {
 		ArrayList<Ordenable> lista = new ArrayList<Ordenable>();
 
-		Cerdo c1 = new Cerdo(500,"Tiberio");
-		Cerdo c2 = new Cerdo(300,"Peggy");
+		
 		Diamante d1 = new Diamante(1000,"Rojo");
+		Cerdo c1 = new Cerdo(500,"Tiberio");
+		Cerdo c2 = new Cerdo(300,"Peggy");		
 		Diamante d2 = new Diamante(200,"Verde");
 
 		lista.add(d2);
