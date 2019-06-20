@@ -60,7 +60,7 @@ public class DAOAlumnoArrayList implements IPersistible<Alumno> {
 
 	@Override
 	public boolean delete(int id) {
-		return lista.remove(lista.get(id));
+		return lista.remove(this.getById(id));
 	}
 
 	@Override

@@ -128,6 +128,7 @@ public class MenuAlumnos {
 		int identificador = 0;
 		System.out.println("\n\n*****  CREAR ALUMNO  *****");
 		System.out.println("**************************");
+
 		try {
 			System.out.print("\n Introduce el nombre del nuevo alumno: ");
 			nombre = sc.nextLine();
@@ -139,7 +140,7 @@ public class MenuAlumnos {
 			dao.insert(nuevoAlumno);
 			System.out.print("\n Alumno creado correctamente.");
 		} catch (Exception e) {
-			System.out.println("Opción incorrecta. Vuelva a intentarlo.");
+			System.out.println("Opción incorrecta. Vuelve a intentarlo.");
 			crearAlumno();
 		}
 	}
@@ -148,15 +149,20 @@ public class MenuAlumnos {
 		System.out.println("\n\n*****  ELIMINAR ALUMNO  *****");
 		System.out.println("*****************************");
 
-		System.out.print("\n Introduce el número del alumno a eliminar: ");
-		listarAlumnos();
-		System.out.print("Número: ");
-		opcion = Integer.parseInt(sc.nextLine());
+		try {
+			System.out.print("\n Introduce el número del alumno a eliminar: ");
+			listarAlumnos();
+			System.out.print("Número: ");
+			opcion = Integer.parseInt(sc.nextLine());
 
-		if (dao.delete(opcion-1)) {
-			System.out.print("\n Alumno eliminado correctamente.");
-		} else {
-			System.out.print("\n No se ha podido eliminar al alumno.");
+			if (dao.delete(opcion)) {
+				System.out.print("\n Alumno eliminado correctamente.");
+			} else {
+				System.out.print("\n No se ha podido eliminar al alumno.");
+			}
+		} catch (Exception e) {
+			System.out.println("Opción incorrecta. Vuelve a intentarlo.");
+			eliminarAlumno();
 		}
 
 	}
@@ -164,13 +170,12 @@ public class MenuAlumnos {
 	public static void buscarVoluntario() {
 
 		int volunt = (int) Math.floor((Math.random() * dao.getAll().size()));
-		
 
 		System.out.println("\n\n*****  BUSCAR VOLUNTARIO  *****");
 		System.out.println("*******************************");
 
 		// anterior=alumnos.get(volunt).getNombre();
-		
+
 		;
 
 		if (anterior.equals(dao.getAll().get(volunt).getNombre())) {
@@ -180,13 +185,12 @@ public class MenuAlumnos {
 			alumnos.get(volunt).setVoluntario(1);
 			System.out.println("Voluntario: " + dao.getAll().get(volunt).getNombre());
 		}
-		/*if (anterior.equals(alumnos.get(volunt).getNombre())) {
-			buscarVoluntario();
-		} else {
-			anterior = alumnos.get(volunt).getNombre();
-			alumnos.get(volunt).setVoluntario(1);
-			System.out.println("Voluntario: " + alumnos.get(volunt).getNombre());
-		}*/
+		/*
+		 * if (anterior.equals(alumnos.get(volunt).getNombre())) { buscarVoluntario(); }
+		 * else { anterior = alumnos.get(volunt).getNombre();
+		 * alumnos.get(volunt).setVoluntario(1); System.out.println("Voluntario: " +
+		 * alumnos.get(volunt).getNombre()); }
+		 */
 
 	}
 
