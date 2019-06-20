@@ -1,7 +1,9 @@
 package com.ipartek.formacion;
 
 public class Person {
+
 	// Atributos
+	private int id;
 	private String nombre;
 	private int edad;
 	private float altura; // 1.70 m
@@ -17,6 +19,7 @@ public class Person {
 
 	public Person() {
 		super(); // java.lang.Object
+		this.id = -1;
 		this.nombre = "ANONIMO";
 		this.edad = 18;
 		this.altura = 0;
@@ -26,15 +29,16 @@ public class Person {
 	}
 
 	public Person(String nombre, int edad, char sexo) {
-		//super(); //no queremos llamar al padre. Queremos llamar al contructor anterior.
+		// super(); //no queremos llamar al padre. Queremos llamar al contructor
+		// anterior.
 		this();
 		this.nombre = nombre;
 		this.edad = edad;
 		this.sexo = sexo;
 	}
-	
+
 	public Person(String nombre) throws Exception {
-		//super();
+		// super();
 		this();
 		this.setNombre(nombre);
 	}
@@ -45,11 +49,19 @@ public class Person {
 
 	public void setNombre(String nombre) throws Exception {
 		if (nombre == null) {
-			//this.nombre = "Sin Nombre";
+			// this.nombre = "Sin Nombre";
 			throw new PersonException(PersonException.ERROR_NOMBRE);
 		} else {
 			this.nombre = nombre;
-		}		
+		}
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public int getEdad() {
@@ -94,8 +106,8 @@ public class Person {
 
 	@Override
 	public String toString() {
-		return "Person [nombre=" + nombre + ", edad=" + edad + ", altura=" + altura + ", peso=" + peso + ", ojos="
-				+ ojos + ", sexo=" + sexo + "]";
+		return "Person [id=" + id + ", nombre=" + nombre + ", edad=" + edad + ", altura=" + altura + ", peso=" + peso
+				+ ", ojos=" + ojos + ", sexo=" + sexo + "]";
 	}
 
 	public String saludar() {

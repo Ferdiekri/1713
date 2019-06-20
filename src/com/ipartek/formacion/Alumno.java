@@ -5,11 +5,13 @@ public class Alumno extends Person implements Comparable<Alumno> {
 
 	public Alumno() {
 		super();
+		super.setId(-1);
 		this.voluntario = 0;
 	}
 
-	public Alumno(String nombre) throws Exception {
+	public Alumno(int id, String nombre) throws Exception {
 		this();
+		super.setId(id);
 		this.setNombre(nombre);
 	}
 
