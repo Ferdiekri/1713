@@ -23,10 +23,10 @@ public class MenuAlumnos {
 	static final int OPCION_SALIR = 5;
 
 	/**
-	 * Programa que cree un menú para los alumnos y elija quién es el voluntario.
-	 * Tiene que estar encapsulado en métodos.
+	 * Programa que cree un menï¿½ para los alumnos y elija quiï¿½n es el voluntario.
+	 * Tiene que estar encapsulado en mï¿½todos.
 	 * 
-	 * // Menú: // 1. Listar alumnos. Ordenado por Ranking. // 2. Crear alumno
+	 * // Menï¿½: // 1. Listar alumnos. Ordenado por Ranking. // 2. Crear alumno
 	 * (nombre & edad). // 3. Eliminar alumno. // 4. Buscar voluntario (no puede
 	 * salir el anterior). // 5. Ranking de voluntarios
 	 * 
@@ -55,10 +55,10 @@ public class MenuAlumnos {
 				buscarVoluntario();
 				break;
 			case OPCION_SALIR:
-				System.out.println("Hasta la próxima.");
+				System.out.println("Hasta la prï¿½xima.");
 				break;
 			default:
-				System.out.println("Lo siento, pero esa opción no es válida. Vuelve a intentarlo.");
+				System.out.println("Lo siento, pero esa opciï¿½n no es vï¿½lida. Vuelve a intentarlo.");
 				break;
 			}
 
@@ -77,32 +77,54 @@ public class MenuAlumnos {
 		 * ArrayList<Person> alumnos = new ArrayList<Person>(); alumnos.add(new
 		 * Alumno(1, "Gaizka")); alumnos.add(new Alumno(3, "Jon A.")); alumnos.add(new
 		 * Alumno(5, "Arkaitz")); alumnos.add(new Alumno(7, "Andoni")); alumnos.add(new
-		 * Alumno(9, "Verónica")); alumnos.add(new Alumno(11, "Manuel"));
+		 * Alumno(9, "Verï¿½nica")); alumnos.add(new Alumno(11, "Manuel"));
 		 * alumnos.add(new Alumno(13, "Mounir")); // alumnos.add(new Alumno(0,
 		 * "Ander")); // alumnos.add(new Alumno(2, "Eder I.")); alumnos.add(new
-		 * Alumno(4, "José Luis")); alumnos.add(new Alumno(6, "Aritz")); alumnos.add(new
+		 * Alumno(4, "Josï¿½ Luis")); alumnos.add(new Alumno(6, "Aritz")); alumnos.add(new
 		 * Alumno(8, "Jon C.")); alumnos.add(new Alumno(10, "Asier")); alumnos.add(new
 		 * Alumno(12, "Borja")); alumnos.add(new Alumno(14, "Eder S."));
 		 */
 
 	}
 
-	public static void dibujarMenu() {
+	public static void limpiarPantalla() {
+
+		try {
+			final String os = System.getProperty("os.name");
+
+			if (os.contains("Windows")) {
+				Runtime.getRuntime().exec("cls");
+			} else {
+				Runtime.getRuntime().exec("clear");
+			}
+		} catch (final Exception e) {
+			// Handle any exceptions.
+		}
+
+		/*
+		 * for (int i = 0; i < 50; i++) { System.out.println("\n"); }
+		 */
+	}
+
+	public static void dibujarMenu() throws Exception {
+
+		limpiarPantalla();
+
 		System.out.println("\n\n*****************************");
-		System.out.println("*****  MENÚ DE ALUMNOS  *****");
+		System.out.println("*****  MENï¿½ DE ALUMNOS  *****");
 		System.out.println("*****************************");
 		System.out.println("** 1. Listar alumnos ordenados por ranking. ");
 		System.out.println("** 2. Crear alumno");
 		System.out.println("** 3. Eliminar alumno.");
-		System.out.println("** 4. Buscar voluntario.");
+		System.out.println("** 4. Elegir voluntario.");
 		System.out.println("** 5. Salir.");
 		System.out.println("*****************************");
-		System.out.print("\nElige una opción: ");
+		System.out.print("\nElige una opciï¿½n: ");
 
 		try {
 			opcion = Integer.parseInt(sc.nextLine());
 		} catch (Exception e) {
-			System.out.println("Opción incorrecta. Vuelva a intentarlo.");
+			System.out.println("Opciï¿½n incorrecta. Vuelva a intentarlo.");
 			dibujarMenu();
 		}
 	}
@@ -115,7 +137,7 @@ public class MenuAlumnos {
 		Collections.sort(alumnos, new ComparatorNombre());
 		Collections.sort(alumnos);
 
-		System.out.println("###\tNOMBRE\t\tRANKING\n---\t------\t\t-------");
+		System.out.println("id\tNOMBRE\t\tRANKING\n---\t------\t\t-------");
 
 		for (Alumno alumno : dao.getAll()) {
 			System.out.println(alumno.getId() + "\t" + alumno.getNombre() + "   \t" + alumno.getVoluntario());
@@ -126,21 +148,31 @@ public class MenuAlumnos {
 	public static void crearAlumno() throws Exception {
 
 		int identificador = 0;
+		
 		System.out.println("\n\n*****  CREAR ALUMNO  *****");
 		System.out.println("**************************");
 
 		try {
+			System.out.print("\n Introduce el identificador para " + nombre + ": ");
+			identificador = Integer.parseInt(sc.nextLine());
+			
+			for (Alumno alumno : dao.getAll()) {
+				if (alumno.getId() == identificador) {
+					System.out.println("Ya existe un alumno con ese identificador. Por favor, vuelva a intentarlo.");
+					crearAlumno();
+				}	
+			}
+			
 			System.out.print("\n Introduce el nombre del nuevo alumno: ");
 			nombre = sc.nextLine();
-			System.out.print("\n Introduce el identificador para " + nombre + ": ");
-
-			identificador = Integer.parseInt(sc.nextLine());
+			
+			
 
 			Alumno nuevoAlumno = new Alumno(identificador, nombre);
 			dao.insert(nuevoAlumno);
 			System.out.print("\n Alumno creado correctamente.");
 		} catch (Exception e) {
-			System.out.println("Opción incorrecta. Vuelve a intentarlo.");
+			System.out.println("Opciï¿½n incorrecta. Vuelve a intentarlo.");
 			crearAlumno();
 		}
 	}
@@ -150,9 +182,9 @@ public class MenuAlumnos {
 		System.out.println("*****************************");
 
 		try {
-			System.out.print("\n Introduce el número del alumno a eliminar: ");
+			System.out.print("\n Introduce el nï¿½mero del alumno a eliminar: ");
 			listarAlumnos();
-			System.out.print("Número: ");
+			System.out.print("Nï¿½mero: ");
 			opcion = Integer.parseInt(sc.nextLine());
 
 			if (dao.delete(opcion)) {
@@ -161,7 +193,7 @@ public class MenuAlumnos {
 				System.out.print("\n No se ha podido eliminar al alumno.");
 			}
 		} catch (Exception e) {
-			System.out.println("Opción incorrecta. Vuelve a intentarlo.");
+			System.out.println("Opciï¿½n incorrecta. Vuelve a intentarlo.");
 			eliminarAlumno();
 		}
 
@@ -183,7 +215,7 @@ public class MenuAlumnos {
 		} else {
 			anterior = dao.getAll().get(volunt).getNombre();
 			alumnos.get(volunt).setVoluntario(1);
-			System.out.println("Voluntario: " + dao.getAll().get(volunt).getNombre());
+			System.out.println("Voluntario elegido: " + dao.getAll().get(volunt).getNombre());
 		}
 		/*
 		 * if (anterior.equals(alumnos.get(volunt).getNombre())) { buscarVoluntario(); }
