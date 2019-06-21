@@ -1,5 +1,7 @@
 package com.ipartek.formacion;
 
+import java.io.Console;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
@@ -21,6 +23,7 @@ public class MenuAlumnos {
 	static final int OPCION_ELIMINAR = 3;
 	static final int OPCION_BUSCAR = 4;
 	static final int OPCION_SALIR = 5;
+	static final int TIEMPO_ESPERA = 2000;
 
 	/**
 	 * Programa que cree un men� para los alumnos y elija qui�n es el voluntario.
@@ -88,22 +91,10 @@ public class MenuAlumnos {
 	}
 
 	public static void limpiarPantalla() {
-
-		try {
-			final String os = System.getProperty("os.name");
-
-			if (os.contains("Windows")) {
-				Runtime.getRuntime().exec("cls");
-			} else {
-				Runtime.getRuntime().exec("clear");
-			}
-		} catch (final Exception e) {
-			// Handle any exceptions.
+		
+		for (int i = 0; i < 100; i++) {
+			System.out.println("\n");
 		}
-
-		/*
-		 * for (int i = 0; i < 50; i++) { System.out.println("\n"); }
-		 */
 	}
 
 	public static void dibujarMenu() throws Exception {
@@ -126,7 +117,7 @@ public class MenuAlumnos {
 		} catch (Exception e) {
 			System.out.println("Opci�n incorrecta. Vuelva a intentarlo.");
 			dibujarMenu();
-		}
+		}		
 	}
 
 	public static void listarAlumnos() {
@@ -148,25 +139,23 @@ public class MenuAlumnos {
 	public static void crearAlumno() throws Exception {
 
 		int identificador = 0;
-		
+
 		System.out.println("\n\n*****  CREAR ALUMNO  *****");
 		System.out.println("**************************");
 
 		try {
 			System.out.print("\n Introduce el identificador para " + nombre + ": ");
 			identificador = Integer.parseInt(sc.nextLine());
-			
+
 			for (Alumno alumno : dao.getAll()) {
 				if (alumno.getId() == identificador) {
 					System.out.println("Ya existe un alumno con ese identificador. Por favor, vuelva a intentarlo.");
 					crearAlumno();
-				}	
+				}
 			}
-			
+
 			System.out.print("\n Introduce el nombre del nuevo alumno: ");
 			nombre = sc.nextLine();
-			
-			
 
 			Alumno nuevoAlumno = new Alumno(identificador, nombre);
 			dao.insert(nuevoAlumno);
