@@ -8,7 +8,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class FicherosEjemplo {
+public class FicherosEjemplo01 {
 
 	public static void main(String[] args) throws FileNotFoundException, IOException {
 
@@ -21,14 +21,11 @@ public class FicherosEjemplo {
 		// TODO leer objketo del fichero
 		// @see http://www.chuidiang.org/java/ficheros/ObjetosFichero.php
 
-		// String lineaSimulada = "1;Manolo;12;verdes;mucho";
-
-		// String[] campos = lineaSimulada.split(";");
-
-		// System.out.println("Fichero guardado");
+		
+		
 
 		System.out.println("Ejercicio Ficheros");
-		String ficheroNombre = "C:\\1713\\eclipse-workspace\\1713\\ejemplo.txt";
+		String ficheroNombre = "C:\\1713\\eclipse-workspace\\1713\\ejemploFichero.txt";
 
 		try (Scanner sc = new Scanner(System.in);
 				FileWriter fw = new FileWriter(ficheroNombre);
