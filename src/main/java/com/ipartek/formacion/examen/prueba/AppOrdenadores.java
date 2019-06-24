@@ -142,7 +142,12 @@ public class AppOrdenadores {
 		ArrayList<Portatil> laptops = new ArrayList<Portatil>();
 		for (int i = 0; i < BUCLE_PORTATILES; i++) {
 			crearPortatil();
-			laptops.add(portatil);
+			System.out.println(portatil.toString());
+			if (laptops.add(portatil)) {
+				System.out.println("¡Añadido a la colección!");
+				System.out.println(laptops.get(i).toString());
+			}
+			//laptops.add(portatil);
 		}
 
 		// Collections.sort(portatiles);
