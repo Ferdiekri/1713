@@ -8,13 +8,24 @@ import com.ipartek.formacion.Alumno;
 public class DAOAlumnoArrayList implements IPersistible<Alumno> {
 
 	private ArrayList<Alumno> lista;
-
-	public DAOAlumnoArrayList(ArrayList<Alumno> lista) {
-		super();
-		this.lista = lista;
+	private static DAOAlumnoArrayList INSTANCE;
+	
+public static synchronized DAOAlumnoArrayList getInstance(){
+		
+		if ( INSTANCE == null ) {
+			INSTANCE = new DAOAlumnoArrayList();
+		}
+		
+		return INSTANCE;
+		
 	}
 
-	public DAOAlumnoArrayList() throws Exception {
+	public DAOAlumnoArrayList() {
+		super();
+		this.lista = new ArrayList<Alumno>();
+	}
+
+	/*public DAOAlumnoArrayList() throws Exception {
 		super();
 		lista = new ArrayList<Alumno>();
 		lista.add(new Alumno(1, "Gaizka"));
@@ -35,7 +46,7 @@ public class DAOAlumnoArrayList implements IPersistible<Alumno> {
 		lista.add(new Alumno(12, "Borja"));
 		lista.add(new Alumno(14, "Eder S."));
 
-	}
+	}*/
 
 	@Override
 	public List<Alumno> getAll() {

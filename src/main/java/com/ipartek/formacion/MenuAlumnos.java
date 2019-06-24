@@ -24,10 +24,10 @@ public class MenuAlumnos {
 	static final int TIEMPO_ESPERA = 2000;
 
 	/**
-	 * Programa que cree un men� para los alumnos y elija qui�n es el voluntario.
-	 * Tiene que estar encapsulado en m�todos.
+	 * Programa que cree un menú para los alumnos y elija quién es el voluntario.
+	 * Tiene que estar encapsulado en  métodos.
 	 * 
-	 * // Men�: // 1. Listar alumnos. Ordenado por Ranking. // 2. Crear alumno
+	 * // Menú: // 1. Listar alumnos. Ordenado por Ranking. // 2. Crear alumno
 	 * (nombre & edad). // 3. Eliminar alumno. // 4. Buscar voluntario (no puede
 	 * salir el anterior). // 5. Ranking de voluntarios
 	 * 
@@ -56,10 +56,10 @@ public class MenuAlumnos {
 				buscarVoluntario();
 				break;
 			case OPCION_SALIR:
-				System.out.println("Hasta la pr�xima.");
+				System.out.println("Hasta la próxima.");
 				break;
 			default:
-				System.out.println("Lo siento, pero esa opci�n no es v�lida. Vuelve a intentarlo.");
+				System.out.println("Lo siento, pero esa opción no es válida. Vuelve a intentarlo.");
 				break;
 			}
 
@@ -72,7 +72,7 @@ public class MenuAlumnos {
 
 	public static void iniciarAlumnos() throws Exception {
 
-		dao = new DAOAlumnoArrayList();
+		dao = DAOAlumnoArrayList.getInstance();
 
 		/*
 		 * ArrayList<Person> alumnos = new ArrayList<Person>(); alumnos.add(new
@@ -91,7 +91,7 @@ public class MenuAlumnos {
 	public static void dibujarMenu() throws Exception {
 
 		System.out.println("\n\n*****************************");
-		System.out.println("*****  MEN� DE ALUMNOS  *****");
+		System.out.println("*****  MENÚ DE ALUMNOS  *****");
 		System.out.println("*****************************");
 		System.out.println("** 1. Listar alumnos ordenados por ranking. ");
 		System.out.println("** 2. Crear alumno");
@@ -99,12 +99,12 @@ public class MenuAlumnos {
 		System.out.println("** 4. Elegir voluntario.");
 		System.out.println("** 5. Salir.");
 		System.out.println("*****************************");
-		System.out.print("\nElige una opci�n: ");
+		System.out.print("\nElige una opción: ");
 
 		try {
 			opcion = Integer.parseInt(sc.nextLine());
 		} catch (Exception e) {
-			System.out.println("Opci�n incorrecta. Vuelva a intentarlo.");
+			System.out.println("Opción incorrecta. Vuelva a intentarlo.");
 			dibujarMenu();
 		}
 	}
@@ -150,7 +150,7 @@ public class MenuAlumnos {
 			dao.insert(nuevoAlumno);
 			System.out.print("\n Alumno creado correctamente.");
 		} catch (Exception e) {
-			System.out.println("Opci�n incorrecta. Vuelve a intentarlo.");
+			System.out.println("Opción incorrecta. Vuelve a intentarlo.");
 			crearAlumno();
 		}
 	}
@@ -160,7 +160,7 @@ public class MenuAlumnos {
 		System.out.println("*****************************");
 
 		try {
-			System.out.print("\n Introduce el n�mero del alumno a eliminar: ");
+			System.out.print("\n Introduce el número del alumno a eliminar: ");
 			listarAlumnos();
 			System.out.print("N�mero: ");
 			opcion = Integer.parseInt(sc.nextLine());
