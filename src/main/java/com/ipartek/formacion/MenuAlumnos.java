@@ -1,7 +1,5 @@
 package com.ipartek.formacion;
 
-import java.io.Console;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
@@ -90,16 +88,7 @@ public class MenuAlumnos {
 
 	}
 
-	public static void limpiarPantalla() {
-		
-		for (int i = 0; i < 100; i++) {
-			System.out.println("\n");
-		}
-	}
-
 	public static void dibujarMenu() throws Exception {
-
-		limpiarPantalla();
 
 		System.out.println("\n\n*****************************");
 		System.out.println("*****  MEN� DE ALUMNOS  *****");
@@ -117,7 +106,7 @@ public class MenuAlumnos {
 		} catch (Exception e) {
 			System.out.println("Opci�n incorrecta. Vuelva a intentarlo.");
 			dibujarMenu();
-		}		
+		}
 	}
 
 	public static void listarAlumnos() {
@@ -125,10 +114,10 @@ public class MenuAlumnos {
 		System.out.println("\n\n*****  LISTADO DE ALUMNOS  *****");
 		System.out.println("********************************");
 		alumnos = (ArrayList<Alumno>) dao.getAll();
-		Collections.sort(alumnos, new ComparatorNombre());
-		Collections.sort(alumnos);
+		Collections.sort(dao.getAll(), new ComparatorNombre());
+		Collections.sort(dao.getAll());
 
-		System.out.println("id\tNOMBRE\t\tRANKING\n---\t------\t\t-------");
+		System.out.println("ID\tNOMBRE\t\tRANKING\n---\t------\t\t-------");
 
 		for (Alumno alumno : dao.getAll()) {
 			System.out.println(alumno.getId() + "\t" + alumno.getNombre() + "   \t" + alumno.getVoluntario());
@@ -197,13 +186,12 @@ public class MenuAlumnos {
 
 		// anterior=alumnos.get(volunt).getNombre();
 
-		;
-
 		if (anterior.equals(dao.getAll().get(volunt).getNombre())) {
 			buscarVoluntario();
 		} else {
 			anterior = dao.getAll().get(volunt).getNombre();
 			alumnos.get(volunt).setVoluntario(1);
+			dao.update(dao.getAll().get(volunt));
 			System.out.println("Voluntario elegido: " + dao.getAll().get(volunt).getNombre());
 		}
 		/*

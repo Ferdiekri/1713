@@ -21,19 +21,20 @@ public class DAOAlumnoArrayList implements IPersistible<Alumno> {
 		lista.add(new Alumno(3, "Jon A."));
 		lista.add(new Alumno(5, "Arkaitz"));
 		lista.add(new Alumno(7, "Andoni"));
-		lista.add(new Alumno(9, "Verónica"));
+		lista.add(new Alumno(9, "Verï¿½nica"));
 		lista.add(new Alumno(11, "Manuel"));
 		lista.add(new Alumno(13, "Mounir"));
 		//
 		lista.add(new Alumno(0, "Ander"));
 		//
 		lista.add(new Alumno(2, "Eder I."));
-		lista.add(new Alumno(4, "José Luis"));
+		lista.add(new Alumno(4, "Josï¿½ Luis"));
 		lista.add(new Alumno(6, "Aritz"));
 		lista.add(new Alumno(8, "Jon C."));
 		lista.add(new Alumno(10, "Asier"));
 		lista.add(new Alumno(12, "Borja"));
 		lista.add(new Alumno(14, "Eder S."));
+
 	}
 
 	@Override
@@ -64,10 +65,24 @@ public class DAOAlumnoArrayList implements IPersistible<Alumno> {
 	}
 
 	@Override
-	public boolean update(int id) {
-		// TODO Auto-generated method stub
+	public boolean update(Alumno pojo) {
+		boolean resul = false;
 
-		return false;
+		if (pojo != null) {
+
+			for (Alumno a : lista) {
+
+				if (a.getId() == pojo.getId()) {
+					// modificar
+					int pos = lista.indexOf(a);
+					lista.set(pos, pojo);
+					resul = true;
+					break;
+				}
+			}
+		}
+
+		return resul;
 	}
 
 }

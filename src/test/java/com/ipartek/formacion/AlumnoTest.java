@@ -1,6 +1,6 @@
 package com.ipartek.formacion;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -14,15 +14,15 @@ public class AlumnoTest {
 
 		ArrayList<Alumno> alumnos = new ArrayList<Alumno>();
 
-		Alumno a = new Alumno(1,"Pepe");
+		Alumno a = new Alumno(1, "Pepe");
 		a.setVoluntario(0);
 		alumnos.add(a);
 
-		a = new Alumno(3,"Manoli");
+		a = new Alumno(3, "Manoli");
 		a.setVoluntario(2);
 		alumnos.add(a);
 
-		a = new Alumno(5,"Antton");
+		a = new Alumno(5, "Antton");
 		a.setVoluntario(20);
 		alumnos.add(a);
 
@@ -39,15 +39,15 @@ public class AlumnoTest {
 
 		ArrayList<Alumno> alumnos = new ArrayList<Alumno>();
 
-		Alumno a = new Alumno(9,"Zapatero");
+		Alumno a = new Alumno(9, "Zapatero");
 		a.setVoluntario(0);
 		alumnos.add(a);
 
-		a = new Alumno(5,"Anastasia");
+		a = new Alumno(5, "Anastasia");
 		a.setVoluntario(2);
 		alumnos.add(a);
 
-		a = new Alumno(3,"Burrito");
+		a = new Alumno(3, "Burrito");
 		a.setVoluntario(20);
 		alumnos.add(a);
 

@@ -3,30 +3,29 @@ package com.ipartek.formacion;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.util.Scanner;
 
 public class FicherosEjemplo {
 
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args) throws FileNotFoundException, IOException {
 
-		String ficheroNombrePersonas = "C:\\1713\\eclipse-workspace\\1713\\personas.txt";
-		ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(ficheroNombrePersonas));
-		oos.writeObject(new Person("Manolito"));
-		oos.flush();
+		// String ficheroNombrePersonas = "C:\\1713\\eclipse-workspace\\1713\\personas.txt";
+		// ObjectOutputStream oos = new ObjectOutputStream(new
+		// FileOutputStream(ficheroNombrePersonas));
+		// oos.writeObject(new Person("Manolito"));
+		// oos.flush();
 
 		// TODO leer objketo del fichero
 		// @see http://www.chuidiang.org/java/ficheros/ObjetosFichero.php
 
-		String lineaSimulada = "1;Manolo;12;verdes;mucho";
+		// String lineaSimulada = "1;Manolo;12;verdes;mucho";
 
-		String[] campos = lineaSimulada.split(";");
+		// String[] campos = lineaSimulada.split(";");
 
-		System.out.println("Fichero guardado");
+		// System.out.println("Fichero guardado");
 
 		System.out.println("Ejercicio Ficheros");
 		String ficheroNombre = "C:\\1713\\eclipse-workspace\\1713\\ejemplo.txt";

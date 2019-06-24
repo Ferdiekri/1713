@@ -2,14 +2,16 @@ package com.ipartek.formacion.modelo;
 
 import java.util.List;
 
+import com.ipartek.formacion.Alumno;
+
 /**
- * Operaciones básicas de CRUD para POJOs.
- * @author Eder Ibáñez Rojo
+ * Operaciones bï¿½sicas de CRUD para POJOs.
+ * @author Eder Ibï¿½ï¿½ez Rojo
  *
  */
 public interface IPersistible<P> {
 	
-	// Operaciones básicas para leer.
+	// Operaciones bï¿½sicas para leer.
 	
 	List<P> getAll();
 	
@@ -24,7 +26,7 @@ public interface IPersistible<P> {
 	boolean delete (int id);
 	
 	// Actualizar
-	
-	boolean update (int id);
+
+	boolean update(Alumno pojo);
 
 }
