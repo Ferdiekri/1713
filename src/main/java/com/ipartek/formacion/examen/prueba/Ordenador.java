@@ -8,9 +8,9 @@ public class Ordenador implements Comparable<Ordenador> {
 	private String placaBase; // Nombre de la placa base.
 	private float cpu; // X.XX GHz.
 	private int procesador; // 32 ó 64 bits
-	
-	public static final int PROCESADOR_32 =32;
-	public static final int PROCESADOR_64 =64;
+
+	public static final int PROCESADOR_32 = 32;
+	public static final int PROCESADOR_64 = 64;
 
 	// Constructores
 
@@ -55,13 +55,17 @@ public class Ordenador implements Comparable<Ordenador> {
 	public void setCpu(float cpu) {
 		this.cpu = cpu;
 	}
-	
+
 	public int getProcesador() {
 		return procesador;
 	}
 
 	public void setProcesador(int procesador) {
-		this.procesador = procesador;
+		if ((procesador != 32) || (procesador != 64)) {
+
+		} else {
+			this.procesador = procesador;
+		}
 	}
 
 	// Resto de métodos

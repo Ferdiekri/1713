@@ -65,8 +65,8 @@ public class AppOrdenadores {
 		System.out.println("** 2. Introducir un portatil.");
 		System.out.println("** 3. Listar ordenadores & portátiles");
 		System.out.println("** 4. Ir al submenú de portátiles.");
-		System.out.println("** 5. Salir sin guardar.");
-		System.out.println("** 6. Salir y guardar.");
+		System.out.println("** 5. Salir y guardar.");
+		System.out.println("** 6. Salir sin guardar.");
 		System.out.println("*****************************");
 		System.out.print("\nElige una opción: ");
 
@@ -83,7 +83,8 @@ public class AppOrdenadores {
 		System.out.println("\n\n ***************************");
 		System.out.println("*****  NUEVO ORDENADOR  *****");
 		System.out.println(" ***************************");
-
+		
+		try {
 		System.out.print("Introduce el nombre del modelo: ");
 		ordenador.setNombre(sc.nextLine());
 
@@ -97,6 +98,11 @@ public class AppOrdenadores {
 		ordenador.setCpu(Float.parseFloat(sc.nextLine()));
 
 		System.out.println("Ordenador creado correctamente.");
+		
+		} catch (Exception e) {
+			System.out.println("Dato incorrecto. Vuelva a intentarlo.");
+			crearOrdenador();
+		}
 
 	} // crearOrdenador
 
@@ -105,14 +111,19 @@ public class AppOrdenadores {
 		System.out.println("\n\n **************************");
 		System.out.println("*****  NUEVO PORTATIL  *****");
 		System.out.println(" **************************");
+		try {
+			System.out.print("Introduce la resolución de la pantalla: ");
+			portatil.setResolucion(Float.parseFloat(sc.nextLine()));
 
-		System.out.print("Introduce la resolución de la pantalla: ");
-		portatil.setResolucion(Float.parseFloat(sc.nextLine()));
+			System.out.print("Introduce la carga de la batería: ");
+			portatil.setBateria(Integer.parseInt(sc.nextLine()));
 
-		System.out.print("Introduce la carga de la batería: ");
-		portatil.setBateria(Integer.parseInt(sc.nextLine()));
-
-		System.out.println("Portatil creado correctamente.");
+			System.out.println("Portatil creado correctamente.");
+			
+		} catch (Exception e) {
+			System.out.println("Dato incorrecto. Vuelva a intentarlo.");
+			crearPortatil();
+		}
 
 	} // crearPortatil
 
